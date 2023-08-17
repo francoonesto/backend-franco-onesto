@@ -84,4 +84,4 @@ const productManager = new ProductManager()
 // productManager.updateProduct({id:1}, {title:"COCA-COLA"})
 // productManager.deleteProduct("")
 
-// export default ProductManager
+export default ProductManager
