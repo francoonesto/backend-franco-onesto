@@ -15,10 +15,10 @@ app.get('/' , (req,res) =>{
 })
 
 app.get('/products/:id' , async (req,res)=>{
-    const productosId = await productManager.getProductsById()
     const {id} = req.params
     try{
-        await productManager.getProductsById(id)
+        const productoId = await productManager.getProductsById(id)
+        res.status(200).send(productoId)
     }
      catch{
         res.status(404).send("Producto no encontrado!")
