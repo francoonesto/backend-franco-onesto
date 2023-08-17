@@ -1,3 +1,4 @@
+
 import express, { query } from 'express'
 import ProductManager from './productManager.js'
 import {promises as fs } from 'fs'
@@ -14,14 +15,14 @@ app.get('/' , (req,res) =>{
 })
 
 app.get('/products/:id' , async (req,res)=>{
-    const productos = await productManager.getProductsById(id)
-    const prods = productos.find(prods =>prods.id === parseInt(req.params.id))
-    res.send(req.params.id)
-    if(prods){
-    res.status(200).send(prods)}
-    else{
-        res.status(404).send("Producto no encontrado!")
+    const productosId = await productManager.getProductsById()
+    const {id} = req.params
+    try{
+        await productManager.getProductsById(id)
     }
+     catch{
+        res.status(404).send("Producto no encontrado!")
+     }
 
 })
 
@@ -42,4 +43,3 @@ app.get('*' , (req,res) => {
 app.listen(PORT , () =>{
     console.log(`Server on port ${PORT}`)
 })
-
