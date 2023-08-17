@@ -69,13 +69,6 @@ const prod ={ title:"COCA-COLA",description:"Coca Cola Original 2,5L",price:"900
 const prod1 ={ title:"SPRITE",description:"Sprite Original 2,5L",price:"800",thumbnail:"./images/coca.webp",code:"34",stock:"20", id:2 ,cantidad:"1"}
 const prod2 ={ title:"FANTA",description:"Fanta Original 2,5L",price:"700",thumbnail:"./images/coca.webp",code:"35",stock:"15", id:3 ,cantidad:"1"}
 
-// try {
-//     await getProductById("ProductoID")
-// }catch(error){
-//     ("Producto no existente")
-// console.error(error.message)
-// }
-
 const productManager = new ProductManager()
 
 // productManager.addProduct(prod2)
@@ -84,4 +77,12 @@ const productManager = new ProductManager()
 // productManager.updateProduct({id:1}, {title:"COCA-COLA"})
 // productManager.deleteProduct("")
 
+try {
+    await getProductById("ProductoID")
+ }catch(error){
+     ("Producto no existente")
+ console.error(error.message)
+ }
+
 export default ProductManager
+

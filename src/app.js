@@ -27,9 +27,11 @@ app.get('/products/:id' , async (req,res)=>{
 
 app.get('/products' , async (req,res)=>{
 const productos = await productManager.getProducts()
-const { limit } = req.query(limit = 10)
+const { limit } = req.query
 const retorno = productos.slice(0 , limit)
-res.status(200).send(productos)
+if(retorno)
+res.status(200).send(retorno)
+else res.status(200).send(productos)
 })
 
 
